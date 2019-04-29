@@ -1,7 +1,8 @@
 import * as React from 'react';
-import Home from './Views/Home'
+// import Home from './Views/Home'
 import './scss/app';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './Components/Navbar';
 
 export default class App extends React.Component<IAppProps, IAppState> {
 
@@ -9,15 +10,15 @@ export default class App extends React.Component<IAppProps, IAppState> {
     constructor(props: IAppProps) {
         super(props);
 
-        this.state = { 
+        this.state = {
             chirps: []
-         };
+        };
     }
 
     async componentWillMount() {
         let r = await fetch('/api/chirps');
         let data = await r.json();
-        let Chirps = Object.keys(data).map(key => {
+        let chirps = Object.keys(data).map(key => {
             return {
                 id: key,
                 user: data[key].user,
@@ -30,9 +31,10 @@ export default class App extends React.Component<IAppProps, IAppState> {
         return (
             <Router>
                 <>
-                <Switch>
-                    <Route exact path="/" component={Home}></Route>
-                </Switch>
+                    <Navbar />
+                    <Switch>
+
+                    </Switch>
                 </>
             </Router>
 
