@@ -9,13 +9,21 @@ export default class App extends React.Component<IAppProps, IAppState> {
     constructor(props: IAppProps) {
         super(props);
 
-        this.state = { id: null, name: null, chirp: null };
+        this.state = { 
+            chirps: []
+         };
     }
 
     async componentWillMount() {
         let r = await fetch('/api/chirps');
         let data = await r.json();
-        this.setState({ data })
+        let Chirps = Object.keys(data).map(key => {
+            return {
+                id: key,
+                user: data[key].user,
+                chirp: data[key].chirp
+            }
+        });
     }
 
     render() {
@@ -37,7 +45,5 @@ interface IAppProps {
 }
 
 interface IAppState {
-    id: string;
-    name: string;
-    chirp: string;
+    chirps: { user: string, chirp: string }[]
 }
