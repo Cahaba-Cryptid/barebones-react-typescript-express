@@ -8,7 +8,6 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
 
         this.state = { chirps: [], user: undefined, chirp: undefined }
 
-        // this.handleSUbmit = this.handleSubmit.bind(this);
     }
 
     async componentDidMount() {
@@ -22,6 +21,8 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
                     chirp: data[key].chirp
                 }
             });
+            chirps.pop();
+            chirps.reverse();
             this.setState({ chirps })
         } catch (err) {
             console.log(err)
@@ -31,21 +32,11 @@ export default class Home extends React.Component<IHomeProps, IHomeState> {
     render() {
         return (
             <>
-            <div className="row bg-dark p-2 m-2 border border-secondary rounded shadow">
-                <h3 className="text-light">"If you can't say anything nice, don't say anything at all." ~ Mom</h3>
-
-                <div className="form-group">
-                    <input type="text" className="form-control m-2" placeholder="User"/>
-                    <input type="text" className="form-control m-2" placeholder="Chirp"/>
-                    <button type="submit" className="btn btn-secondary m-2">Submit</button>
+                <div>
+                    {this.state.chirps.map(chirp => {
+                        return <ChirpCard key={chirp.id} chirp={ chirp } />
+                    })}
                 </div>
-            </div>
-
-            <div>
-            { this.state.chirps.map(chirp => {
-                return <ChirpCard key={chirp.id} chirp= { chirp }/>
-            }) }
-            </div>
             </>
         )
     }

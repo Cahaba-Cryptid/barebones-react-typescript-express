@@ -1,15 +1,1 @@
-{
-    "4": {
-        "user": "Hayden",
-        "chirp": "Making test content."
-    },
-    "5": {
-        "user": "Rook",
-        "chirp": "Napping is the best."
-    },
-    "6": {
-        "user": "Vesper",
-        "chirp": "Always hungry!"
-    },
-    "nextid": 7
-}
+{"4":{"user":"Hayden","chirp":"Making test content."},"5":{"user":"Rook","chirp":"Napping is the best."},"6":{"user":"Vesper","chirp":"Always hungry!"},"7":{"user":"Katie","chirp":"Yay!"},"15":{"user":"Hayden","chirp":"Test delete"},"16":{"user":"Hayden","chirp":"Test delete"},"17":{"user":"Hayden","chirp":"Test delete"},"18":{"user":"Hayden","chirp":"Testing!!!!"},"nextid":19}

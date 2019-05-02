@@ -3,8 +3,8 @@ import Home from './Views/Home'
 import './scss/app';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
-// import NewChirp from './Components/NewChirp';
-// import Admin from './Components/Admin';
+import Admin from './Components/Admin';
+import NewChirp from './Components/NewChirp';
 
 export default class App extends React.Component<IAppProps, IAppState> {
 
@@ -17,7 +17,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
         };
     }
 
-    async componentWillMount() {
+    async componentDidMount() {
         let r = await fetch('/api/chirps');
         let data = await r.json();
         let chirps = Object.keys(data).map(key => {
@@ -36,8 +36,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
                     <Navbar />
                     <Switch>
                         <Route exact path="/" component={Home}></Route>
-                        {/* <Route exavt path="/newChirp" component={NewChirp}></Route>
-                        <Route exact path="/admin/:id" component={Admin}></Route> */}
+                        <Route exact Path="/newchirp" component={NewChirp}></Route>
+                        <Route exact path="/admin/:id" component={Admin}></Route>
                     </Switch>
                 </>
             </Router>

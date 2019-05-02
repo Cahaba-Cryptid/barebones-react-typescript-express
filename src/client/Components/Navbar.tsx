@@ -12,11 +12,8 @@ const Navbar: React.SFC<IAppProps> = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <Link className="nav-link mr-3" to="/Films"><span className="sr-only">(current)</span></Link>
-                        </li>
                         <li className="nav-item">
-                            <Link className="nav-link mr-3" to="/People">Peeps</Link>
+                            <Link className="nav-link mr-3" to="/newchirp">New Chirp</Link>
                         </li>
                     </ul>
                 </div>
